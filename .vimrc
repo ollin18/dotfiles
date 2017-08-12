@@ -16,6 +16,8 @@ if dein#load_state('/home/ollin/.vim/bundles')
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('kassio/neoterm')
+  call dein#add('nightsense/vim-crunchbang')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('tpope/vim-surround')
