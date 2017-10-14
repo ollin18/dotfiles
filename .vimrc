@@ -118,6 +118,9 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
+" Easier surrounding
+map ss ysiw
+
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -133,7 +136,9 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:neoterm_position = 'vertical'
 let g:neoterm_automap_keys = ',tt'
 
-" Useful maps
+" Useful maps"
+" open terminal
+nnoremap <silent> ,to :call neoterm#open()<cr>
 " hide/close terminal
 nnoremap <silent> ,th :call neoterm#close()<cr>
 " clear terminal
@@ -150,7 +155,7 @@ command! Tmigrate :T rake db:migrate
 command! -nargs=+ Tg :T git <args>
 
 silent! nmap <C-l> :TREPLSendLine<CR>
-silent! nmap <C-s> :TREPLSendSelection<CR>
+silent! vmap <C-s> :TREPLSendSelection<CR>
 
 let g:tex_flavor = "lualatex"
 let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode $*'
