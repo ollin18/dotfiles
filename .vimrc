@@ -3,11 +3,11 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/ollin/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.config/nvim/bundles/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/ollin/.vim/bundles')
-  call dein#begin('/home/ollin/.vim/bundles')
+if dein#load_state('$HOME/.config/nvim/bundles')
+  call dein#begin('$HOME/.config/nvim/bundles')
 
   " Let dein manage dein
   " Required:
