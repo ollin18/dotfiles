@@ -11,7 +11,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/ollin/.vim/bundles/repos/github.com/Shougo/dein.vim')
+  call dein#add('$HOME/.config/nvim/bundles/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
