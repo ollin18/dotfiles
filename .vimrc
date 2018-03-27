@@ -31,6 +31,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
   call dein#add('ajpaulson/julia-syntax.vim')
   call dein#add('Yggdroot/indentLine')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('tpope/vim-fugitive')
   call dein#add('myusuf3/numbers.vim')
   call dein#add('bitc/vim-bad-whitespace')
   call dein#add('easymotion/vim-easymotion')
@@ -38,7 +39,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('kassio/neoterm')
   call dein#add('chazmcgarvey/zencoding-vim')
-
+  call dein#add('FredKSchott/CoVim')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -159,3 +160,7 @@ silent! vmap <C-s> :TREPLSendSelection<CR>
 
 let g:tex_flavor = "lualatex"
 let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode $*'
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+
+tnoremap <Esc> <C-\><C-n>
