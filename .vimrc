@@ -226,16 +226,26 @@ silent! vmap <C-s> :TREPLSendSelection<CR>
 " ============================================================================
 " Fugitive (GIT) {{{1
 " ============================================================================
+
 " Git commands
 command! -nargs=+ Tg :T git <args>
 
 " ============================================================================
 " LaTeX {{{1
 " ============================================================================
+
 let g:tex_flavor = "pdflatex"
 let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 -interaction=nonstopmode $*'
 
 " ============================================================================
 " NERDcommenter {{{1
 " ============================================================================
+
+" Add a space between comment delimiter and comment
 let g:NERDSpaceDelims = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
