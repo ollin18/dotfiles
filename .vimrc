@@ -187,7 +187,8 @@ au BufNewFile,BufRead *.py
             \ set textwidth=79 |
             \ set expandtab |
             \ set autoindent |
-            \ set fileformat=unix
+            \ set fileformat=unix |
+            \ :ShebangInsert python
 
 au BufNewFile,BufRead *.jl
             \ set tabstop=4 |
@@ -196,7 +197,28 @@ au BufNewFile,BufRead *.jl
             \ set textwidth=79 |
             \ set expandtab |
             \ set autoindent |
-            \ set fileformat=unix
+            \ set fileformat=unix |
+            \ :ShebangInsert julia
+
+au BufNewFile,BufRead *.sh
+            \ set tabstop=4 |
+            \ set softtabstop=4 |
+            \ set shiftwidth=4 |
+            \ set textwidth=79 |
+            \ set expandtab |
+            \ set autoindent |
+            \ set fileformat=unix |
+            \ :ShebangInsert bash
+
+au BufNewFile,BufRead *.R
+            \ set tabstop=4 |
+            \ set softtabstop=4 |
+            \ set shiftwidth=4 |
+            \ set textwidth=79 |
+            \ set expandtab |
+            \ set autoindent |
+            \ set fileformat=unix |
+            \ :ShebangInsert R
 
 " ============================================================================
 " Terminal {{{1
@@ -249,3 +271,15 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDDefaultAlign = 'left'
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
+
+" ============================================================================
+" Shebang {{{1
+" ============================================================================
+
+" Define my common Shebang
+let g:shebang#shebangs = {
+            \ 'julia': '#!/usr/bin/env julia',
+            \ 'sh': '#!/usr/bin/env bash',
+            \ 'python': '#!/usr/bin/env python',
+            \ 'R': '#!/usr/bin/env Rscript'
+            \}
