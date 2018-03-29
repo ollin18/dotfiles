@@ -16,7 +16,6 @@
 "
 " Author: Ollin Demian <ollin.demian@gmail.com>
 "
-"
 " ============================================================================
 " Neovim default {{{1
 " ============================================================================
@@ -76,7 +75,6 @@ if dein#load_state('$HOME/.config/nvim/bundles')
 
   " Navigation
   call dein#add('scrooloose/nerdtree')
-  call dein#add('tpope/vim-fugitive')
   call dein#add('myusuf3/numbers.vim')
 
   " Folding
@@ -105,6 +103,10 @@ endif
 " Basic settings and maps {{{1
 " ============================================================================
 
+" Time in milliseconds that is waited for a key code or mapped key sequence to
+" complete.
+set ttimeoutlen=50
+
 " Map the ESC to a double tap of the ñ key
 inoremap ññ <ESC>
 
@@ -132,6 +134,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme="base16"
 let g:airline_powerline_fonts = 1
 let g:ariline_powerline_theme='bubblegum'
+set laststatus=2
 
 " ============================================================================
 " UI Layout {{{1
@@ -141,6 +144,9 @@ if (has("termguicolors"))
   set termguicolors
 endif
 set background=dark
+set encoding=utf8
+set guifont=IBM\ Plex\ Mono:h14
+colorscheme crunchbang
 
 " ============================================================================
 " NERDTree {{{1
@@ -151,23 +157,23 @@ silent! map <F3> :NERDTreeFind<CR>
 let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
 
-set encoding=utf8
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
-
-set laststatus=2
-set ttimeoutlen=50
-colorscheme crunchbang
-"colorscheme abstract-theme
-
-" Enable folding
+" ============================================================================
+" Folding {{{1
+" ============================================================================
 set foldmethod=indent
 set foldlevel=99
-
 " Enable folding with the spacebar
 nnoremap <space> za
 
+" ============================================================================
+" Surround {{{1
+" ============================================================================
 " Easier surrounding
 map ss ysiw
+
+" ============================================================================
+" Autocommands {{{1
+" ============================================================================
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -178,8 +184,14 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+au BufNewFile,BufRead *.jl
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
 
 "let g:neoterm_default_mod = 'vertical'
 let g:neoterm_automap_keys = ',tt'
