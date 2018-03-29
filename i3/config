@@ -1,5 +1,4 @@
-# Este archivo debe de ir en ~/.config/i3/config
-# i3 config file (v4)
+# Este archivo debe de ir en ~/.config/i3/config# i3 config file (v4)
 #
 set $mod Mod1
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
@@ -37,7 +36,7 @@ set $right l
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec i3-sensible-terminal
+bindsym Mod1+Return exec xfce4-terminal
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -202,7 +201,8 @@ new_window 1pixel
 # Tener escritorios específicos para cada aplicación
 set $WS1   "  Shell"
 set $WS2   "  Código "
-set $WS3   "  Navegador "
+#set $WS3   "  Navegador "
+set $WS3   "🦊  Navegador "
 set $WS4   "  Herramientas "
 set $WS5   "  Media "
 set $WS6   "  Gaming "
@@ -221,27 +221,27 @@ bindsym Mod1+8 workspace 8
 bindsym Mod1+9 workspace 9
 
 # Tener control del escritorio donde se abren las aplicaciones
-assign [class="(?i)terminal|deepin-terminal"] → $WS1
-assign [class="(?i)vim|emacs"] → $WS2
-assign [class="(?i)firefox|chromium|google-chrome-stable|google-chrome"] → $WS3
+assign [class="(?i)terminal|xfce4-terminal"] → $WS1
+assign [class="(?i)emacs"] → $WS2
+assign [class="(?i)firefox|vivaldi|google-chrome-stable"] → $WS3
 assign [class="(?i)ranger|virtualbox|libreoffice"] → $WS4
-assign [class="(?i)spotify|mpv|feh|mpd|vlc"] → $WS5
+assign [class="(?i)amarok|spotify"] → $WS5
 assign [class="(?i)steam"] → $WS6
 assign [title="OpenGL"] $ws6
 for_window [class="Steam"] move to workspace $WS6
 assign [class="(?i)qbittorrent"] → $WS7
 
 
-set $mode_launcher Launch: [c]hromium [f]irefox [v]vim [s]potify deepin-[t]erminal
+set $mode_launcher Launch: [v]ivaldi [f]irefox [e]macs [s]potify xfce4-[t]erminal
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher"
 {
-    bindsym c exec chromium
+    bindsym v exec vivaldi-stable
     bindsym f exec firefox
-    bindsym v exec vim
+    bindsym e exec emacs
     bindsym s exec spotify
-    bindsym t exec deepin-terminal
+    bindsym t exec xfce4-terminal
 
     bindsym Esc mode "default"
     bindsym Return mode "default"

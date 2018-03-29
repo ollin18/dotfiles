@@ -76,6 +76,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
 
   " Navigation
   call dein#add('scrooloose/nerdtree')
+  call dein#add('tpope/vim-fugitive')
   call dein#add('myusuf3/numbers.vim')
 
   " Folding
