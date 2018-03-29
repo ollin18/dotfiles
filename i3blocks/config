@@ -23,7 +23,7 @@ separator_block_width=16
 
 [pacman]
 label=🐧
-command=~/.i3-blocks-contrib/pacman
+command=~/.i3-blocks-contrib/arch-update/arch-update.py
 signal=once
 interval=1
 
@@ -86,6 +86,11 @@ interval=3600
 label=
 command=date '+%H:%M:%S' # | sed 's/:/h/'
 interval=1
+
+[battery]
+command=~/.i3-blocks-contrib/battery/battery
+interval=30
+markup=pango
 
 # [dunst]
 # command=~/.i3blocks_dunst_notify
