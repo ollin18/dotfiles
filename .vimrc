@@ -68,6 +68,8 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     call dein#add('bitc/vim-bad-whitespace')
     call dein#add('Yggdroot/indentLine')
     call dein#add('easymotion/vim-easymotion')
+    call dein#add('terryma/vim-multiple-cursors')
+    call dein#add('chazmcgarvey/zencoding-vim')
 
     " Syntax
     call dein#add('vim-latex/vim-latex')
@@ -81,10 +83,9 @@ if dein#load_state('$HOME/.config/nvim/bundles')
 
     " Folding
     call dein#add('tmhedberg/SimpylFold')
+
+    " Cooperation
     call dein#add('tpope/vim-fugitive')
-    call dein#add('terryma/vim-multiple-cursors')
-    call dein#add('kassio/neoterm')
-    call dein#add('chazmcgarvey/zencoding-vim')
     call dein#add('FredKSchott/CoVim')
 
     " Required:
