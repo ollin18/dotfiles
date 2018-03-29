@@ -284,3 +284,9 @@ let g:shebang#shebangs = {
             \ 'python': '#!/usr/bin/env python',
             \ 'R': '#!/usr/bin/env Rscript'
             \}
+
+" ============================================================================
+" Folding {{{1
+" ============================================================================
+
+let g:SimpylFold_docstring_preview=1
