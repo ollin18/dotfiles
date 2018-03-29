@@ -40,7 +40,7 @@ set runtimepath+=$HOME/.config/nvim/bundles/repos/github.com/Shougo/dein.vim
 if dein#load_state('$HOME/.config/nvim/bundles')
     call dein#begin('$HOME/.config/nvim/bundles')
 
-    " In order to let deing manage itself we have to add the local dir of the
+    " In order to let dein manage itself we have to add the local dir of the
     " repo
     " Required:
     call dein#add('$HOME/.config/nvim/bundles/repos/github.com/Shougo/dein.vim')
@@ -64,7 +64,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     " Writting
     call dein#add('tpope/vim-surround')
     call dein#add('scrooloose/nerdcommenter')
-    call dein#add('vitalk/vim-shebang')
+    call dein#add('sbdchd/vim-shebang')
     call dein#add('bitc/vim-bad-whitespace')
     call dein#add('Yggdroot/indentLine')
     call dein#add('easymotion/vim-easymotion')
