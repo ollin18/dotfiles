@@ -48,6 +48,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     " Autocomplete
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('tpope/vim-speeddating')
 
     " Terminal or IDE
     call dein#add('kassio/neoterm')
@@ -90,6 +91,10 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     " Cooperation
     call dein#add('tpope/vim-fugitive')
     call dein#add('FredKSchott/CoVim')
+
+    " Organize
+    call dein#add('jceb/vim-orgmode')
+    call dein#add('vimwiki/vimwiki')
 
     " Required:
     call dein#end()
