@@ -91,6 +91,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
 
     " Organize
     call dein#add('jceb/vim-orgmode')
+    call dein#add('vimwiki/vimwiki')
 
     " Required:
     call dein#end()
