@@ -84,6 +84,9 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     " Folding
     call dein#add('tmhedberg/SimpylFold')
 
+    " Organizing
+    call dein#add('vimwiki/vimwiki')
+
     " Cooperation
     call dein#add('tpope/vim-fugitive')
     call dein#add('FredKSchott/CoVim')
