@@ -226,8 +226,7 @@ au BufNewFile,BufRead *.R
             \ set textwidth=79 |
             \ set expandtab |
             \ set autoindent |
-            \ set fileformat=unix |
-            \ :ShebangInsert R
+            \ set fileformat=unix
 
 " ============================================================================
 " Terminal {{{1
