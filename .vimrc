@@ -196,8 +196,7 @@ au BufNewFile,BufRead *.py
             \ set textwidth=79 |
             \ set expandtab |
             \ set autoindent |
-            \ set fileformat=unix |
-            \ :ShebangInsert python
+            \ set fileformat=unix
 
 au BufNewFile,BufRead *.jl
             \ set tabstop=4 |
@@ -206,8 +205,7 @@ au BufNewFile,BufRead *.jl
             \ set textwidth=79 |
             \ set expandtab |
             \ set autoindent |
-            \ set fileformat=unix |
-            \ :ShebangInsert julia
+            \ set fileformat=unix
 
 au BufNewFile,BufRead *.sh
             \ set tabstop=4 |
