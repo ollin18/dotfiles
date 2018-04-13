@@ -295,3 +295,11 @@ let g:shebang#shebangs = {
 " ============================================================================
 
 let g:SimpylFold_docstring_preview=1
+" Buffers {{{1
+" ============================================================================
+
+" Commands to deal with the buffers without going all the way through the
+" colon
+nnoremap <silent> <leader>bn :bn<CR>
+nnoremap <silent> <leader>bp :bp<CR>
+nnoremap <silent> <leader>ls :ls<CR>
