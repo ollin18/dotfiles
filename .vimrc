@@ -58,6 +58,9 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     call dein#add('jdsimcoe/abstract.vim')
     call dein#add('ryanoasis/vim-devicons')
 
+    " CSV
+    call dein#add('chrisbra/csv.vim')
+
     " Powerline
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
@@ -120,6 +123,8 @@ set ttimeoutlen=50
 
 " Map the ESC to a double tap of the ñ key
 inoremap ññ <ESC>
+inoremap fd <ESC>
+inoremap jf <ESC>
 
 " Setting up leader key
 let mapleader = ","
