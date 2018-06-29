@@ -326,3 +326,9 @@ nnoremap <silent> <leader>bs5 :Bs 5<CR>
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
+
+" ============================================================================
+" Calendar {{{1
+" ============================================================================
+
+let b:csv_arrange_align = 'lc.'
