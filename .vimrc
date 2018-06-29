@@ -87,6 +87,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
 
     " Organizing
     call dein#add('vimwiki/vimwiki')
+    call dein#add('itchyny/calendar.vim')
 
     " Cooperation
     call dein#add('tpope/vim-fugitive')
@@ -295,6 +296,8 @@ let g:shebang#shebangs = {
 " ============================================================================
 
 let g:SimpylFold_docstring_preview=1
+
+" ============================================================================
 " Buffers {{{1
 " ============================================================================
 
@@ -310,3 +313,11 @@ nnoremap <silent> <leader>bs2 :Bs 2<CR>
 nnoremap <silent> <leader>bs3 :Bs 3<CR>
 nnoremap <silent> <leader>bs4 :Bs 4<CR>
 nnoremap <silent> <leader>bs5 :Bs 5<CR>
+
+
+" ============================================================================
+" Calendar {{{1
+" ============================================================================
+
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
