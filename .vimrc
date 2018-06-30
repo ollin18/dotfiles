@@ -328,7 +328,7 @@ let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
 " ============================================================================
-" Calendar {{{1
+" CSV {{{1
 " ============================================================================
 
-let b:csv_arrange_align = 'lc.'
+let b:csv_arrange_align = 'l*'
