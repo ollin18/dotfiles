@@ -166,6 +166,7 @@ endif
 set background=dark
 set encoding=utf8
 set guifont=IBM\ Plex\ Mono:h14
+" set guifont=Noto\ Mono\ for\ Powerline:h14
 colorscheme crunchbang
 
 " ============================================================================
@@ -332,3 +333,10 @@ let g:calendar_google_task = 1
 " ============================================================================
 
 let b:csv_arrange_align = 'l*'
+
+" ============================================================================
+" Numbers {{{1
+" ============================================================================
+
+nnoremap <silent> <leader>nt :NumbersToggle<CR>
+nnoremap <silent> <leader>no :NumbersOnOff<CR>
