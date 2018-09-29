@@ -105,30 +105,6 @@ bindsym Mod1+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym Mod1+minus scratchpad show
 
-# switch to workspace
-# bindsym Mod1+1 workspace 1
-# bindsym Mod1+2 workspace 2
-# bindsym Mod1+3 workspace 3
-# bindsym Mod1+4 workspace 4
-# bindsym Mod1+5 workspace 5
-# bindsym Mod1+6 workspace 6
-# bindsym Mod1+7 workspace 7
-# bindsym Mod1+8 workspace 8
-# bindsym Mod1+9 workspace 9
-# bindsym Mod1+0 workspace 10
-
-# move focused container to workspace
-bindsym Mod1+Shift+1 move container to workspace 1
-bindsym Mod1+Shift+2 move container to workspace 2
-bindsym Mod1+Shift+3 move container to workspace 3
-bindsym Mod1+Shift+4 move container to workspace 4
-bindsym Mod1+Shift+5 move container to workspace 5
-bindsym Mod1+Shift+6 move container to workspace 6
-bindsym Mod1+Shift+7 move container to workspace 7
-bindsym Mod1+Shift+8 move container to workspace 8
-bindsym Mod1+Shift+9 move container to workspace 9
-bindsym Mod1+Shift+0 move container to workspace 10
-
 # reload the configuration file
 bindsym Mod1+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -189,8 +165,8 @@ bindsym XF86AudioMute exec pamixer -t set Master toggle
 
 # Para poder cambiar el brillo de la pantalla
 # Se necesita tener instalado xbacklight
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 05
+bindsym XF86MonBrightnessDown exec xbacklight -dec 05
 
 # Para la transparencia de las ventanas
 exec xcompmgr -c -f -n
@@ -217,13 +193,25 @@ bindsym $mod+4 workspace $WS4
 bindsym $mod+5 workspace $WS5
 bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
-bindsym Mod1+8 workspace 8
-bindsym Mod1+9 workspace 9
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # Tener control del escritorio donde se abren las aplicaciones
 assign [class="(?i)terminal|xfce4-terminal"] → $WS1
 assign [class="(?i)emacs"] → $WS2
-assign [class="(?i)firefox|vivaldi|google-chrome-stable"] → $WS3
+assign [class="(?i)firefox|google-chrome-stable"] → $WS3
 assign [class="(?i)ranger|virtualbox|libreoffice"] → $WS4
 assign [class="(?i)amarok|spotify"] → $WS5
 assign [class="(?i)steam"] → $WS6
@@ -298,3 +286,5 @@ bar {
     hidden_state hide
     modifier $Mod
 }
+
+bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
