@@ -1,8 +1,8 @@
-# my_zsh
-The config for my zsh
+# This are my neovim and i3wm dotfiles, constantly evolving
 
-The file named 'config' is for the i3wm, so it has to be copied in:
-
-```
-~/.config/i3/config
-```
+Requires:
+***   * pamixer
+   * xorg-xbacklight
+   * i3wm
+   * neovim
+   * i3blocks
