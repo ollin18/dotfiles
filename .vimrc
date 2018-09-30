@@ -73,7 +73,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     call dein#add('Yggdroot/indentLine')
     call dein#add('easymotion/vim-easymotion')
     call dein#add('terryma/vim-multiple-cursors')
-    call dein#add('chazmcgarvey/zencoding-vim')
+    call dein#add('mattn/emmet-vim')
 
     " Syntax
     call dein#add('vim-latex/vim-latex')
@@ -99,6 +99,9 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     " Organize
     call dein#add('jceb/vim-orgmode')
     call dein#add('vimwiki/vimwiki')
+
+    " Data
+    call dein#add('szymonmaszke/vimpyter')
 
     " Required:
     call dein#end()
