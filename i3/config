@@ -225,7 +225,7 @@ bindsym $mod+Shift+d moveworkspace to output down
 
 # Tener control del escritorio donde se abren las aplicaciones
 assign [class="(?i)sakura|konsole|terminal|xfce4-terminal"] → $WS1
-assign [class="(?i)emacs"] → $WS2
+assign [class="(?i)emacs|rstudio"] → $WS2
 assign [class="(?i)firefox|vivaldi|google-chrome-stable"] → $WS3
 assign [class="(?i)dolphin|libreoffice"] → $WS4
 assign [class="(?i)amarok|spotify|franz"] → $WS5
