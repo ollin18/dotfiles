@@ -23,6 +23,7 @@ separator_block_width=16
 
 [pacman]
 label=🐧
+color=red
 command=~/.i3-blocks-contrib/arch-update/arch-update.py
 signal=once
 interval=1
@@ -33,32 +34,33 @@ interval=1
 # interval=1
 
 [disk-home]
-label=
+label=💾
 command=/usr/lib/i3blocks/disk $HOME
 interval=30
 
-[disk-root]
-command=~/.i3-blocks-contrib/disk
-interval=30
+# [disk-root]
+# command=~/.i3-blocks-contrib/disk
+# interval=30
 
 [volume]
-label=
+label=🔊
 command=/usr/lib/i3blocks/volume
 interval=1
 
-[brightness]
-label=🔆
-command=/usr/lib/.i3-blocks-contrib/brightness
-interval=1
+# [brightness]
+# label=🔆
+# command=~/.i3-blocks-contrib/brightness
+# interval=1
 
-[weather]
-command=~/.i3-blocks-contrib/weather
-interval=3
+# [weather]
+# label=🔆
+# command=~/.i3-blocks-contrib/weather
+# interval=3
 
-[memory]
-command=~/.i3-blocks-contrib/memory
-interval=3
-label=
+# [memory]
+# command=~/.i3-blocks-contrib/memory
+# interval=3
+# label=
 
 # [cpu-temp]
 # label=
@@ -78,16 +80,17 @@ label=
 # interval=1
 
 [date]
-label=
+label=📅
 command=date '+%d/%m/%Y'
 interval=3600
 
 [time]
-label=
+label=🕑
 command=date '+%H:%M:%S' # | sed 's/:/h/'
 interval=1
 
 [battery]
+label=🔋
 command=~/.i3-blocks-contrib/battery/battery
 interval=30
 markup=pango
