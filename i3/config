@@ -103,7 +103,11 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
+<<<<<<< HEAD
 bindsym $mod+minus scratchpad show
+=======
+bindsym Mod1+minus scratchpad show
+>>>>>>> 0a13844f1e2d8672077f21d5e36b64d7857a900f
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -211,10 +215,13 @@ bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+<<<<<<< HEAD
 
 # move  focused container to other monitor
 bindsym $mod+Shift+u moveworkspace to output up
 bindsym $mod+Shift+d moveworkspace to output down
+=======
+>>>>>>> 0a13844f1e2d8672077f21d5e36b64d7857a900f
 
 # Tener control del escritorio donde se abren las aplicaciones
 assign [class="(?i)sakura|konsole|terminal|xfce4-terminal"] → $WS1

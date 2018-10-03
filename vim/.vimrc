@@ -73,7 +73,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     call dein#add('Yggdroot/indentLine')
     call dein#add('easymotion/vim-easymotion')
     call dein#add('terryma/vim-multiple-cursors')
-    call dein#add('chazmcgarvey/zencoding-vim')
+    call dein#add('mattn/emmet-vim')
 
     " Syntax
     call dein#add('vim-latex/vim-latex')
@@ -99,6 +99,9 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     " Organize
     call dein#add('jceb/vim-orgmode')
     call dein#add('vimwiki/vimwiki')
+
+    " Data
+    call dein#add('szymonmaszke/vimpyter')
 
     " Required:
     call dein#end()
@@ -166,6 +169,7 @@ endif
 set background=dark
 set encoding=utf8
 set guifont=IBM\ Plex\ Mono:h14
+" set guifont=Noto\ Mono\ for\ Powerline:h14
 colorscheme crunchbang
 
 " ============================================================================
@@ -332,3 +336,10 @@ let g:calendar_google_task = 1
 " ============================================================================
 
 let b:csv_arrange_align = 'l*'
+
+" ============================================================================
+" Numbers {{{1
+" ============================================================================
+
+nnoremap <silent> <leader>nt :NumbersToggle<CR>
+nnoremap <silent> <leader>no :NumbersOnOff<CR>
