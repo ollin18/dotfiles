@@ -95,7 +95,6 @@ command=~/.i3-blocks-contrib/battery/battery
 interval=30
 markup=pango
 
-# [dunst]
-# command=~/.i3blocks_dunst_notify
-# signal=12
-
+[dunst]
+command=~/.i3blocks_dunst_notify
+signal=12
