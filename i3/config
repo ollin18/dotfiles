@@ -32,85 +32,86 @@ set $down j
 set $left h
 set $right l
 
-# use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod1
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec sakura # xfce4-terminal
+bindsym $mod+Return exec hyper
 
 # kill focused window
-bindsym Mod1+Shift+q kill
+bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "Helvetica Neue 15" '
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym Mod1+$left focus left
-bindsym Mod1+$down focus down
-bindsym Mod1+$up focus up
-bindsym Mod1+$right focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Left focus left
-bindsym Mod1+Down focus down
-bindsym Mod1+Up focus up
-bindsym Mod1+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
-bindsym Mod1+Shift+$left move left
-bindsym Mod1+Shift+$down move down
-bindsym Mod1+Shift+$up move up
-bindsym Mod1+Shift+$right move right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Shift+Left move left
-bindsym Mod1+Shift+Down move down
-bindsym Mod1+Shift+Up move up
-bindsym Mod1+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+p split h
+bindsym $mod+p split h
 
 # split in vertical orientation
-bindsym Mod1+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym Mod1+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym Mod1+s layout stacking
-bindsym Mod1+w layout tabbed
-bindsym Mod1+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod1+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod1+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym Mod1+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym Mod1+d focus child
+#bindsym $mod+d focus child
 
 # move the currently focused window to the scratchpad
-bindsym Mod1+Shift+minus move scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym Mod1+minus scratchpad show
+bindsym $mod+minus scratchpad show
 
 # reload the configuration file
-bindsym Mod1+Shift+c reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod1+Shift+r restart
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -136,7 +137,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym Mod1+r mode "resize"
+bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -157,7 +158,7 @@ exec i3-config-wizard
 
 # Aquí cargamos los fondos y guake de inicio y quitamos el desktop de Plasma
 exec_always --no-startup-id nitrogen --restore
-exec_always --no-startup-id guake
+exec_always --no-startup-id nm-applet --restore
 exec --no-startup-id wmctrl -c Plasma
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
@@ -212,19 +213,23 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# move  focused container to other monitor
+bindsym $mod+Shift+u moveworkspace to output up
+bindsym $mod+Shift+d moveworkspace to output down
+
 # Tener control del escritorio donde se abren las aplicaciones
-assign [class="(?i)sakura|konsole|terminal|xfce4-terminal"] → $WS1
-assign [class="(?i)emacs"] → $WS2
+assign [class="(?i)sakura|hyper|konsole|terminal|xfce4-terminal"] → $WS1
+assign [class="(?i)emacs|rstudio"] → $WS2
 assign [class="(?i)firefox|vivaldi|google-chrome-stable"] → $WS3
 assign [class="(?i)dolphin|libreoffice"] → $WS4
 assign [class="(?i)amarok|spotify|franz"] → $WS5
 assign [class="(?i)steam"] → $WS6
-assign [title="OpenGL"] $ws6
+assign [title="OpenGL"] $WS6
 for_window [class="Steam"] move to workspace $WS6
-assign [class="(?i)qbittorrent"] → $WS7
+assign [class="(?i)systemsettings5"] → $WS7
 
 
-set $mode_launcher Launch: [v]ivaldi [f]irefox [e]macs [s]potify sa[k]ura
+set $mode_launcher Launch: [v]ivaldi [f]irefox [e]macs [s]potify [t]erminal s[y]stemsettings
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher"
@@ -233,7 +238,8 @@ mode "$mode_launcher"
     bindsym f exec firefox
     bindsym e exec emacs
     bindsym s exec spotify
-    bindsym k exec sakura
+    bindsym t exec hyper
+    bindsym y exec systemsettings5
 
     bindsym Esc mode "default"
     bindsym Return mode "default"
@@ -265,7 +271,7 @@ bindsym $mod+Shift+w reload
 bar {
 
     id bar-1
-    position bottom
+    position top
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
     font pango:DejaVu Sans Mono 12
 
@@ -304,6 +310,7 @@ for_window [class="(?i)kontact"] border none
 #for_window [class="(?i)emacs"] border none
 for_window [class="(?i)chrome"] border none
 for_window [class="(?i)vivaldi"] border none
+for_window [class="(?i)hyper"] border none
 
 # Float by name
 for_window [title="Nitrogen"] floating enable

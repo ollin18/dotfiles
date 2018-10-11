@@ -55,6 +55,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
 
     " UI Layout
     call dein#add('nightsense/vim-crunchbang')
+    call dein#add('dracula/vim')
     call dein#add('jdsimcoe/abstract.vim')
     call dein#add('ryanoasis/vim-devicons')
 
@@ -74,6 +75,7 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     call dein#add('easymotion/vim-easymotion')
     call dein#add('terryma/vim-multiple-cursors')
     call dein#add('mattn/emmet-vim')
+    call dein#add('JamshedVesuna/vim-markdown-preview')
 
     " Syntax
     call dein#add('vim-latex/vim-latex')
@@ -162,6 +164,9 @@ set laststatus=2
 " ============================================================================
 " UI Layout {{{1
 " ============================================================================
+
+" Don't let terminal override my vim settings
+" set notermguicolors
 let t_Co = 256
 if (has("termguicolors"))
     set termguicolors
@@ -171,6 +176,7 @@ set encoding=utf8
 set guifont=IBM\ Plex\ Mono:h14
 " set guifont=Noto\ Mono\ for\ Powerline:h14
 colorscheme crunchbang
+" colorscheme dracula
 
 " ============================================================================
 " NERDTree {{{1
@@ -343,3 +349,11 @@ let b:csv_arrange_align = 'l*'
 
 nnoremap <silent> <leader>nt :NumbersToggle<CR>
 nnoremap <silent> <leader>no :NumbersOnOff<CR>
+
+" ============================================================================
+" Markdown {{{1
+" ============================================================================
+
+let vim_markdown_preview_hotkey='<C-m>'
+" let vim_markdown_preview_browser='firefox'
+let vim_markdown_preview_pandoc=1
