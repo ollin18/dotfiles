@@ -159,6 +159,7 @@ exec i3-config-wizard
 # Aquí cargamos los fondos y guake de inicio y quitamos el desktop de Plasma
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id nm-applet --restore
+exec_always --no-startup-id kdeconnect-indicator --restore
 # exec_always --no-startup-id plasmashell
 exec_always --no-startup-id dunst --restore
 exec_always --no-startup-id wmctrl -c Plasma
@@ -221,6 +222,8 @@ bindsym $mod+Shift+d moveworkspace to output down
 
 # external monitor above laptop
 bindsym $mod+m exec xrandr --output HDMI1 --above eDP1 --auto
+# Always at startup time
+exec_always --no-startup-id ~/.config/i3/monitor.sh --restore
 # move all the containers in external monitor to laptop
 bindsym $mod+n exec xrandr --output HDMI1 --off
 
