@@ -159,7 +159,9 @@ exec i3-config-wizard
 # Aquí cargamos los fondos y guake de inicio y quitamos el desktop de Plasma
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id nm-applet --restore
-exec --no-startup-id wmctrl -c Plasma
+# exec_always --no-startup-id plasmashell
+exec_always --no-startup-id dunst --restore
+exec_always --no-startup-id wmctrl -c Plasma
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # Para poder cambiar el volumen con las teclas de audio
@@ -216,6 +218,12 @@ bindsym $mod+Shift+0 move container to workspace 10
 # move  focused container to other monitor
 bindsym $mod+Shift+u moveworkspace to output up
 bindsym $mod+Shift+d moveworkspace to output down
+
+# external monitor above laptop
+bindsym $mod+m exec xrandr --output HDMI1 --above eDP1 --auto
+# move all the containers in external monitor to laptop
+bindsym $mod+n exec xrandr --output HDMI1 --off
+
 
 # Tener control del escritorio donde se abren las aplicaciones
 assign [class="(?i)sakura|hyper|konsole|terminal|xfce4-terminal"] → $WS1
@@ -326,6 +334,9 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
 #---( startup items )---#
+# The keyring
+# I'm using gnome-keyring as kwallet has failed me before, *libsecret* is
+# also needed
 
 # exec_always --no-startup-id nitrogen --restore
 
