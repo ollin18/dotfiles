@@ -36,7 +36,7 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec hyper
+bindsym $mod+Return exec deepin-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -160,6 +160,7 @@ exec i3-config-wizard
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id nm-applet --restore
 exec_always --no-startup-id kdeconnect-indicator --restore
+exec_always --no-startup-id dropbox --restore
 # exec_always --no-startup-id plasmashell
 exec_always --no-startup-id dunst --restore
 exec_always --no-startup-id wmctrl -c Plasma
@@ -229,7 +230,7 @@ bindsym $mod+n exec xrandr --output HDMI1 --off
 
 
 # Tener control del escritorio donde se abren las aplicaciones
-assign [class="(?i)sakura|hyper|konsole|terminal|xfce4-terminal"] → $WS1
+assign [class="(?i)deepin-terminal|sakura|hyper|konsole|terminal|xfce4-terminal"] → $WS1
 assign [class="(?i)emacs|rstudio"] → $WS2
 assign [class="(?i)firefox|vivaldi|google-chrome-stable"] → $WS3
 assign [class="(?i)dolphin|libreoffice"] → $WS4
@@ -249,7 +250,7 @@ mode "$mode_launcher"
     bindsym f exec firefox
     bindsym e exec emacs
     bindsym s exec spotify
-    bindsym t exec hyper
+    bindsym t exec deepin-terminal
     bindsym y exec systemsettings5
 
     bindsym Escape mode "default"
@@ -322,6 +323,7 @@ for_window [class="(?i)kontact"] border none
 for_window [class="(?i)chrome"] border none
 for_window [class="(?i)vivaldi"] border none
 for_window [class="(?i)hyper"] border none
+for_window [class="(?i)deepin-terminal"] border none
 
 # Float by name
 for_window [title="Nitrogen"] floating enable
