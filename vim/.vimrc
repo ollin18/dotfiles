@@ -357,3 +357,12 @@ nnoremap <silent> <leader>no :NumbersOnOff<CR>
 let vim_markdown_preview_hotkey='<C-m>'
 " let vim_markdown_preview_browser='firefox'
 let vim_markdown_preview_pandoc=1
+
+" ============================================================================
+" Jupyter Notebooks {{{1
+" ============================================================================
+
+autocmd Filetype ipynb nmap <silent><Leader>bb :VimpyterInsertPythonBlock<CR>
+autocmd Filetype ipynb nmap <silent><Leader>j :VimpyterStartJupyter<CR>
+autocmd Filetype ipynb nmap <silent><Leader>n :VimpyterStartNteract<CR>
+let g:vimpyter_color = 1
