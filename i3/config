@@ -163,8 +163,8 @@ exec_always --no-startup-id kdeconnect-indicator --restore
 exec_always --no-startup-id dropbox --restore
 # exec_always --no-startup-id plasmashell
 exec_always --no-startup-id dunst --restore
-exec_always --no-startup-id wmctrl -c Plasma
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
+# exec_always --no-startup-id wmctrl -c Plasma
+# for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # Para poder cambiar el volumen con las teclas de audio
 # Se necesita tener instalado pamixer
@@ -310,7 +310,7 @@ bar {
 }
 
 bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
-bindsym $mod+c fullscreen enable; floating disable
+bindsym $mod+c floating disable
 
 # A partir de aquí en github.com/nigthsh para funcionar bien con plasma
 
