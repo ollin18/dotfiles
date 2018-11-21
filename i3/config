@@ -288,9 +288,9 @@ bindsym $mod+Shift+w reload
 # ============================================================================
 bar {
     id bar-1
-    position bottom
+    position top
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-    font pango:DejaVu Sans Mono 12
+    font pango:FuraMono Nerd Mono 10
 
     status_command i3blocks
     # status_command i3status
