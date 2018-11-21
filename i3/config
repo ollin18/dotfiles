@@ -1,39 +1,37 @@
+# vim: fdm=marker
+#
+# ___________/\\\\\\\\\\________________________________________
+#  _________/\\\///////\\\_______________________________________
+#   __/\\\__\///______/\\\________________________________________
+#    _\///__________/\\\//____/\\____/\\___/\\____/\\\\\__/\\\\\___
+#     __/\\\________\////\\\__\/\\\__/\\\\_/\\\__/\\\///\\\\\///\\\_
+#      _\/\\\___________\//\\\_\//\\\/\\\\\/\\\__\/\\\_\//\\\__\/\\\_
+#       _\/\\\__/\\\______/\\\___\//\\\\\/\\\\\___\/\\\__\/\\\__\/\\\_
+#        _\/\\\_\///\\\\\\\\\/_____\//\\\\//\\\____\/\\\__\/\\\__\/\\\_
+#         _\///____\/////////________\///__\///_____\///___\///___\///__
+#
+# Author: Ollin Demian <ollin.demian@gmail.com>
+#
+# ============================================================================
+# i3wm default {{{1
+# ============================================================================
 # Este archivo debe de ir en ~/.config/i3/config# i3 config file (v4)
-#
-set $mod Mod1
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+# ============================================================================
+# Defaults {{{1
+# ============================================================================
+set $mod Mod1
+
 font pango:monospace 8
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
+# Moving around
 set $up k
 set $down j
 set $left h
 set $right l
 
-# use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# start Rolfi (a program launcher)
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "Helvetica Neue 15" '
 
 # start a terminal
 bindsym $mod+Return exec deepin-terminal
@@ -41,14 +39,21 @@ bindsym $mod+Return exec deepin-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "Helvetica Neue 15" '
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# ============================================================================
+# Floating {{{1
+# ============================================================================
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
+bindsym $mod+c floating disable
+# ============================================================================
+# Windows {{{1
+# ============================================================================
+# use Mouse+$mod to drag floating windows to their wanted position
 # change focus
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -87,17 +92,11 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -106,6 +105,15 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# Para la transparencia de las ventanas
+exec xcompmgr -c -f -n
+
+# No queremos desplegar el título de las ventanas, así que quitamos la barra
+new_window 1pixel
+
+# ============================================================================
+# Reloading {{{1
+# ============================================================================
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -113,26 +121,21 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# ============================================================================
+# Resize mode {{{1
+# ============================================================================
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+        bindsym $left       resize shrink width 5 px or 5 ppt
+        bindsym $down       resize grow height 5 px or 5 ppt
+        bindsym $up         resize shrink height 5 px or 5 ppt
+        bindsym $right      resize grow width 5 px or 5 ppt
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
+        bindsym Left        resize shrink width 5 px or 5 ppt
+        bindsym Down        resize grow height 5 px or 5 ppt
+        bindsym Up          resize shrink height 5 px or 5 ppt
+        bindsym Right       resize grow width 5 px or 5 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -145,28 +148,27 @@ bindsym $mod+r mode "resize"
 #         status_command i3status
 # }
 
-#######################################################################
-# automatically start i3-config-wizard to offer the user to create a
-# keysym-based config which used their favorite modifier (alt or windows)
-#
-# i3-config-wizard will not launch if there already is a config file
-# in ~/.i3/config.
-#
-# Please remove the following exec line:
-#######################################################################
-exec i3-config-wizard
-
-# Aquí cargamos los fondos y guake de inicio y quitamos el desktop de Plasma
+# ============================================================================
+# Startup {{{1
+# ============================================================================
+# Wallpaper
 exec_always --no-startup-id nitrogen --restore
+# wifi manager
 exec_always --no-startup-id nm-applet --restore
+# kde-connect
 exec_always --no-startup-id kdeconnect-indicator --restore
+# dropbox
 exec_always --no-startup-id dropbox --restore
-# exec_always --no-startup-id plasmashell
+# dunst
 exec_always --no-startup-id dunst --restore
+# The following lines are intended if used with Plasma
 # exec_always --no-startup-id wmctrl -c Plasma
+# exec_always --no-startup-id plasmashell
 # for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
-# Para poder cambiar el volumen con las teclas de audio
+# ============================================================================
+# Volume and brightness {{{1
+# ============================================================================
 # Se necesita tener instalado pamixer
 bindsym XF86AudioRaiseVolume exec pamixer -i 5
 bindsym XF86AudioLowerVolume exec pamixer -d 5
@@ -177,21 +179,18 @@ bindsym XF86AudioMute exec pamixer -t set Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 05
 bindsym XF86MonBrightnessDown exec xbacklight -dec 05
 
-# Para la transparencia de las ventanas
-exec xcompmgr -c -f -n
 
-# No queremos desplegar el título de las ventanas, así que quitamos la barra
-new_window 1pixel
-
+# ============================================================================
+# Custom Containers {{{1
+# ============================================================================
 # Tener escritorios específicos para cada aplicación
-set $WS1   "🐚 Shell"
-set $WS2   "✏️  Editor"
-#set $WS3   "  Navegador "
-set $WS3   "🦊  Navegador"
-set $WS4   "📂  Herramientas"
-set $WS5   "🎵 Media"
-set $WS6   "🕹️  Gaming"
-set $WS7   "🔧  Settings"
+set $WS1   "🐚"
+set $WS2   "✏️ "
+set $WS3   "🦊"
+set $WS4   "📂"
+set $WS5   "🎵"
+set $WS6   "🕹️"
+set $WS7   "🔧"
 
 # También renombramos los escritorios
 
@@ -217,18 +216,6 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# move  focused container to other monitor
-bindsym $mod+Shift+u moveworkspace to output up
-bindsym $mod+Shift+d moveworkspace to output down
-
-# external monitor above laptop
-bindsym $mod+m exec xrandr --output HDMI1 --above eDP1 --auto
-# Always at startup time
-exec_always --no-startup-id ~/.config/i3/monitor.sh --restore
-# move all the containers in external monitor to laptop
-bindsym $mod+n exec xrandr --output HDMI1 --off
-
-
 # Tener control del escritorio donde se abren las aplicaciones
 assign [class="(?i)deepin-terminal|sakura|hyper|konsole|terminal|xfce4-terminal"] → $WS1
 assign [class="(?i)emacs|rstudio"] → $WS2
@@ -240,7 +227,23 @@ assign [title="OpenGL"] $WS6
 for_window [class="Steam"] move to workspace $WS6
 assign [class="(?i)systemsettings5"] → $WS7
 
+# ============================================================================
+# External Monitors {{{1
+# ============================================================================
+# external monitor above laptop
+bindsym $mod+m exec xrandr --output HDMI1 --above eDP1 --auto
+# Always at startup time
+exec_always --no-startup-id ~/.config/i3/monitor.sh --restore
+# move all the containers in external monitor to laptop
+bindsym $mod+n exec xrandr --output HDMI1 --off
+# move  focused container to other monitor
+bindsym $mod+Shift+u moveworkspace to output up
+bindsym $mod+Shift+d moveworkspace to output down
 
+
+# ============================================================================
+# Laucher mode {{{1
+# ============================================================================
 set $mode_launcher Launch: [v]ivaldi [f]irefox [e]macs [s]potify [t]erminal s[y]stemsettings
 bindsym $mod+o mode "$mode_launcher"
 
@@ -258,7 +261,9 @@ mode "$mode_launcher"
 }
 
 
-# Apagar, reiniciar, cerrar sesión
+# ============================================================================
+# Shutdown options {{{1
+# ============================================================================
 set $Locker i3lock && sleep 1 && F10
 set $mode_system System: [l] lock, [e] logout, [r] reboot, [a] shutdown, [s] suspend, [h] hibernate
 bindsym $mod+q mode "$mode_system"
@@ -278,10 +283,10 @@ mode "$mode_system" {
 # Re-cargar el archivo de configuración de i3
 bindsym $mod+Shift+w reload
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# Cambios en la barra
+# ============================================================================
+# Workdspace bar options {{{1
+# ============================================================================
 bar {
-
     id bar-1
     position top
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -309,41 +314,22 @@ bar {
     modifier $Mod
 }
 
-bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
-bindsym $mod+c floating disable
 
-# A partir de aquí en github.com/nigthsh para funcionar bien con plasma
-
-#---( windows rules )---#
+# ============================================================================
+# Window options {{{1
+# ============================================================================
 
 # No border windows
-for_window [class="(?i)franz"] border none
-for_window [class="(?i)firefox"] border none
-for_window [class="(?i)kontact"] border none
-#for_window [class="(?i)emacs"] border none
-for_window [class="(?i)chrome"] border none
-for_window [class="(?i)vivaldi"] border none
-for_window [class="(?i)hyper"] border none
-for_window [class="(?i)deepin-terminal"] border none
+for_window [class="(?i)franz|firefox|google-chrome-stable|vivaldi|hyper|deepin-terminal"] border none
 
 # Float by name
-for_window [title="Nitrogen"] floating enable
-for_window [title="Install user style"] floating enable
-for_window [title="KCalc"] floating enable
-for_window [class="plasmashell"] floating enable
-
+for_window [title="Nitrogen|KCalc|plasmashell|Intall user style"] floating enable
 
 # Float by type
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
+for_window [window_role="pop-up|task_dialog|dialog|menu"] floating enable
 
 #---( startup items )---#
 # The keyring
 # I'm using gnome-keyring as kwallet has failed me before, *libsecret* is
 # also needed
-
-# exec_always --no-startup-id nitrogen --restore
-
 
