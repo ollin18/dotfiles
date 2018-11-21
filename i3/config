@@ -219,7 +219,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 # Tener control del escritorio donde se abren las aplicaciones
 assign [class="(?i)deepin-terminal|sakura|hyper|konsole|terminal|xfce4-terminal"] → $WS1
 assign [class="(?i)emacs|rstudio"] → $WS2
-assign [class="(?i)firefox|nteract|vivaldi|google-chrome-stable"] → $WS3
+assign [class="(?i)firefox|vivaldi|google-chrome-stable"] → $WS3
 assign [class="(?i)dolphin|libreoffice"] → $WS4
 assign [class="(?i)amarok|spotify|franz"] → $WS5
 assign [class="(?i)steam"] → $WS6
@@ -288,7 +288,7 @@ bindsym $mod+Shift+w reload
 # ============================================================================
 bar {
     id bar-1
-    position top
+    position bottom
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
     font pango:DejaVu Sans Mono 12
 
