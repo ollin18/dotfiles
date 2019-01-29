@@ -2,7 +2,8 @@
 
 Requires:
 
-***   * pamixer
+***   
+   * pamixer
    * xorg-xbacklight
    * i3wm
    * neovim
