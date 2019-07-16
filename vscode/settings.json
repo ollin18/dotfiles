@@ -1,0 +1,45 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "Fira Code Retina",
+    "editor.fontWeight": "300",
+    "editor.fontSize":16,
+    "editor.fontLigatures": true,
+    "vim.easymotion": true,
+    "vim.easymotionMarkerBackgroundColor": "black",
+    "vim.easymotionMarkerWidthPerChar": 16,
+    "vim.easymotionMarkerHeight": 16,
+    "vim.easymotionMarkerYOffset": 6,
+    "vim.easymotionMarkerFontSize": "18",
+    "vim.easymotionMarkerForegroundColorOneChar": "yellow",
+    "vim.easymotionMarkerForegroundColorTwoChar": "orange",
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.surround": true,
+    "vim.commentary": true,
+    "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    }
+  ],
+    "vim.leader": ",",
+    "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/bin/nvim"
+}
