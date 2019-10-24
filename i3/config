@@ -30,8 +30,8 @@ set $down j
 set $left h
 set $right l
 
-# start Rolfi (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "Helvetica Neue 15" '
+# start Rofi (a program launcher)
+bindsym $mod+d exec rofi -show drun -columns 2 -terminal deepin-terminal -font "Cascadia Code Regular 12"
 
 # start a terminal
 bindsym $mod+Return exec deepin-terminal
@@ -161,6 +161,8 @@ exec_always --no-startup-id kdeconnect-indicator --restore
 exec_always --no-startup-id dropbox --restore
 # dunst
 exec_always --no-startup-id dunst --restore
+# dropbox
+exec_always --no-startup-id ~/.dropbox-dist/dropboxd & --restore
 # The following lines are intended if used with Plasma
 # exec_always --no-startup-id wmctrl -c Plasma
 # exec_always --no-startup-id plasmashell
@@ -231,11 +233,11 @@ assign [class="(?i)systemsettings5"] → $WS7
 # External Monitors {{{1
 # ============================================================================
 # external monitor above laptop
-bindsym $mod+m exec xrandr --output HDMI1 --above eDP1 --auto
+bindsym $mod+m exec xrandr --output HDMI-0 --above eDP-1-1 --auto
 # Always at startup time
 exec_always --no-startup-id ~/.config/i3/monitor.sh --restore
 # move all the containers in external monitor to laptop
-bindsym $mod+n exec xrandr --output HDMI1 --off
+bindsym $mod+n exec xrandr --output HDMI-0 --off
 # move  focused container to other monitor
 bindsym $mod+Shift+u moveworkspace to output up
 bindsym $mod+Shift+d moveworkspace to output down
