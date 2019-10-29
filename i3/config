@@ -163,6 +163,8 @@ exec_always --no-startup-id dropbox --restore
 exec_always --no-startup-id dunst --restore
 # dropbox
 exec_always --no-startup-id ~/.dropbox-dist/dropboxd & --restore
+# i3lock
+exec --no-startup-id xautolock -time 1 -locker "~/.config/i3/scripts/lock.sh"
 # The following lines are intended if used with Plasma
 # exec_always --no-startup-id wmctrl -c Plasma
 # exec_always --no-startup-id plasmashell
@@ -233,11 +235,11 @@ assign [class="(?i)systemsettings5"] → $WS7
 # External Monitors {{{1
 # ============================================================================
 # external monitor above laptop
-bindsym $mod+m exec xrandr --output HDMI-0 --above eDP-1-1 --auto
+bindsym $mod+m exec xrandr --output HDMI1 --above eDP1 --auto
 # Always at startup time
 exec_always --no-startup-id ~/.config/i3/monitor.sh --restore
 # move all the containers in external monitor to laptop
-bindsym $mod+n exec xrandr --output HDMI-0 --off
+bindsym $mod+n exec xrandr --output HDMI1 --off
 # move  focused container to other monitor
 bindsym $mod+Shift+u moveworkspace to output up
 bindsym $mod+Shift+d moveworkspace to output down
@@ -266,7 +268,8 @@ mode "$mode_launcher"
 # ============================================================================
 # Shutdown options {{{1
 # ============================================================================
-set $Locker i3lock && sleep 1 && F10
+set $Locker exec ~/.config/i3/lock.sh
+bindsym $mod+x exec $Locker
 set $mode_system System: [l] lock, [e] logout, [r] reboot, [a] shutdown, [s] suspend, [h] hibernate
 bindsym $mod+q mode "$mode_system"
 mode "$mode_system" {
@@ -286,7 +289,7 @@ mode "$mode_system" {
 bindsym $mod+Shift+w reload
 
 # ============================================================================
-# Workdspace bar options {{{1
+# Workspace bar options {{{1
 # ============================================================================
 bar {
     id bar-1
