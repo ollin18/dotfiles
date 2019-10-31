@@ -164,7 +164,9 @@ exec_always --no-startup-id dunst --restore
 # dropbox
 exec_always --no-startup-id ~/.dropbox-dist/dropboxd & --restore
 # i3lock
-exec --no-startup-id xautolock -time 1 -locker "~/.config/i3/scripts/lock.sh"
+exec_always --no-startup-id xautolock -time 1 -locker "~/.config/i3/lock.sh"
+# NordVPN
+exec_always --no-startup-id nordvpn connect --restore
 # The following lines are intended if used with Plasma
 # exec_always --no-startup-id wmctrl -c Plasma
 # exec_always --no-startup-id plasmashell
@@ -235,7 +237,7 @@ assign [class="(?i)systemsettings5"] → $WS7
 # External Monitors {{{1
 # ============================================================================
 # external monitor above laptop
-bindsym $mod+m exec xrandr --output HDMI1 --above eDP1 --auto
+bindsym $mod+m exec xrandr --output HDMI-0 --above eDP-1-1 --auto
 # Always at startup time
 exec_always --no-startup-id ~/.config/i3/monitor.sh --restore
 # move all the containers in external monitor to laptop
