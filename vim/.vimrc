@@ -30,7 +30,7 @@ endif
 " This one is to avoid cursor problems on a ssh connection
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 " ============================================================================
-" Plugins (administrated by dein) {{{1
+" Plugins (administrated by Vundle) {{{1
 " ============================================================================
 
 " Required:
@@ -81,9 +81,6 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-if dein#check_install()
-    call dein#install()
-endif
 
 " ============================================================================
 " Basic settings and maps {{{1
