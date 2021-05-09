@@ -34,47 +34,81 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 " ============================================================================
 
 " Required:
-set runtimepath+=$HOME/.config/nvim/bundles/repos/github.com/VundleVim.vim
+set runtimepath+=$HOME/.config/nvim/bundles/repos/github.com/Shougo/dein.vim
 
-call vundle#begin('$HOME/.config/nvim/bundles')
+" Required:
+if dein#load_state('$HOME/.config/nvim/bundles')
+    call dein#begin('$HOME/.config/nvim/bundles')
 
-    Plugin 'VundleVim/Vundle.vim'
+    " In order to let dein manage itself we have to add the local dir of the
+    " repo
+    " Required:
+    call dein#add('$HOME/.config/nvim/bundles/repos/github.com/Shougo/dein.vim')
 
     " Autocomplete
-    Plugin 'Shougo/neosnippet.vim'
-    Plugin 'Shougo/neosnippet-snippets'
-    Plugin 'tpope/vim-speeddating'
+    call dein#add('Shougo/neosnippet.vim')
+    call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('tpope/vim-speeddating')
 
     " Terminal or IDE
-    Plugin 'kassio/neoterm'
+    call dein#add('kassio/neoterm')
 
     " UI Layout
-    Plugin 'nightsense/vim-crunchbang'
-    Plugin 'dracula/vim'
-    Plugin 'jdsimcoe/abstract.vim'
-    Plugin 'ryanoasis/vim-devicons'
+    call dein#add('nightsense/vim-crunchbang')
+    call dein#add('dracula/vim')
+    call dein#add('jdsimcoe/abstract.vim')
+    call dein#add('ryanoasis/vim-devicons')
 
     " CSV
-    Plugin 'chrisbra/csv.vim'
+    call dein#add('chrisbra/csv.vim')
 
     " Powerline
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('vim-airline/vim-airline-themes')
 
     " Writting
-    Plugin 'tpope/vim-surround'
-    Plugin 'scrooloose/nerdcommenter'
-    Plugin 'sbdchd/vim-shebang'
-    Plugin 'bitc/vim-bad-whitespace'
-    Plugin 'Yggdroot/indentLine'
-    Plugin 'easymotion/vim-easymotion'
-    Plugin 'terryma/vim-multiple-cursors'
-    Plugin 'mattn/emmet-vim'
+    call dein#add('tpope/vim-surround')
+    call dein#add('scrooloose/nerdcommenter')
+    call dein#add('sbdchd/vim-shebang')
+    call dein#add('bitc/vim-bad-whitespace')
+    call dein#add('Yggdroot/indentLine')
+    call dein#add('easymotion/vim-easymotion')
+    call dein#add('terryma/vim-multiple-cursors')
+    call dein#add('mattn/emmet-vim')
+    call dein#add('JamshedVesuna/vim-markdown-preview')
+
+    " Syntax
+    call dein#add('vim-latex/vim-latex')
+    call dein#add('ivanov/vim-ipython')
+    call dein#add('JuliaEditorSupport/julia-vim')
+    call dein#add('ajpaulson/julia-syntax.vim')
+
+    " Navigation
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('myusuf3/numbers.vim')
 
     " Folding
-    Plugin 'tmhedberg/SimpylFold'
+    call dein#add('tmhedberg/SimpylFold')
 
-call vundle#end()
+    " Organizing
+    call dein#add('vimwiki/vimwiki')
+    call dein#add('itchyny/calendar.vim')
+
+    " Cooperation
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('FredKSchott/CoVim')
+
+    " Organize
+    call dein#add('jceb/vim-orgmode')
+    call dein#add('vimwiki/vimwiki')
+
+    " Data
+    call dein#add('szymonmaszke/vimpyter')
+
+    " Required:
+    call dein#end()
+    call dein#save_state()
+endif
 
 " Required:
 filetype plugin indent on
