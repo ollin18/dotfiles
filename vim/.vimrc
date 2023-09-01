@@ -27,6 +27,9 @@ if &compatible
     set nocompatible               " Be iMproved
 endif
 
+set number
+set relativenumber
+
 " This one is to avoid cursor problems on a ssh connection
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 " ============================================================================
@@ -40,16 +43,20 @@ call vundle#begin('$HOME/.config/nvim/bundles')
 
     Plugin 'VundleVim/Vundle.vim'
 
+    " Nerdtree
+    Plugin 'preservim/nerdtree'
+
     " Autocomplete
     Plugin 'Shougo/neosnippet.vim'
     Plugin 'Shougo/neosnippet-snippets'
     Plugin 'tpope/vim-speeddating'
+    Plugin 'github/copilot.vim'
 
     " Terminal or IDE
     Plugin 'kassio/neoterm'
 
     " UI Layout
-    Plugin 'nightsense/vim-crunchbang'
+    " Plugin 'nightsense/vim-crunchbang'
     Plugin 'dracula/vim'
     Plugin 'jdsimcoe/abstract.vim'
     Plugin 'ryanoasis/vim-devicons'
@@ -138,8 +145,8 @@ set background=dark
 set encoding=utf8
 set guifont=IBM\ Plex\ Mono:h14
 " set guifont=Noto\ Mono\ for\ Powerline:h14
-colorscheme crunchbang
-" colorscheme dracula
+" colorscheme crunchbang
+colorscheme dracula
 
 " ============================================================================
 " NERDTree {{{1
