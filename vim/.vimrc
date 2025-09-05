@@ -56,7 +56,7 @@ call vundle#begin('$HOME/.config/nvim/bundles')
     Plugin 'kassio/neoterm'
 
     " UI Layout
-    " Plugin 'nightsense/vim-crunchbang'
+    Plugin 'nightsense/vim-crunchbang'
     Plugin 'dracula/vim'
     Plugin 'jdsimcoe/abstract.vim'
     Plugin 'ryanoasis/vim-devicons'
@@ -98,9 +98,9 @@ syntax enable
 set ttimeoutlen=50
 
 " Map the ESC to a double tap of the ñ key
-inoremap ññ <ESC>
-inoremap fd <ESC>
-inoremap jf <ESC>
+" inoremap ññ <ESC>
+" inoremap fd <ESC>
+" inoremap jf <ESC>
 
 " Setting up leader key
 let mapleader = ","
